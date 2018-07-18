@@ -6,13 +6,19 @@ function __nvm_purge --description "Purge any existing data in <folder>" --argum
     end
 
     # Files to remove
-    set --local files_to_remove (command find "$folder" -mindepth 1)
+    #set --local files_to_remove (command find "$folder" -mindepth 1 1> /dev/null)
+
+    # <folder> does not exist (no further action required)
+    if not test -d "$folder"
+        return 0
+    end
+
+    if not set files_to_remove (command find "$folder" -mindepth 1)
+        return 1
+    end
 
     # Remove any content in tmp folder
-    if command rm -rf $files_to_remove
-        echo "[nvm][purge] Success! purged all data in: $folder"
-    else
-        echo "[nvm][purge] Failure! could not purge the data in: $folder" 1>&2
+    if not command rm -rf $files_to_remove
         return 1
     end
 

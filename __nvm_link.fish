@@ -9,10 +9,9 @@ function __nvm_link --description "Add <folder> to $PATH" --argument-names folde
     set PATH "$folder" $PATH
 
     # Verify that <folder> was added to $PATH
-    if string match "$folder" $PATH
-        echo "[nvm][link] Success! adding: $folder to: \$PATH"
+    if string match --quiet "$folder" $PATH
+
     else
-        echo "[nvm][link] Failure! adding: $folder to: \$PATH" 1>&2
         return 1
     end
 

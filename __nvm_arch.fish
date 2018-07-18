@@ -4,7 +4,7 @@ function __nvm_arch --description "Get computer <arch>"
         case x86_64
             echo "x64"
         case '*'
-            echo "[nvm][arch] architecture:" (uname --machine) "is currently not supported" 1>&2
+            echo (uname --machine) 1>&2
             return 1
     end
     

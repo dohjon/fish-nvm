@@ -16,13 +16,12 @@ function __nvm_download --description "Download <source> from <url> to <folder>"
     # Download <source> from <url>
     set --local curl_parameters "--progress-bar" "--fail" "--show-error" "--location" "--remote-name"
     if curl $curl_parameters "$url"
-        echo "[nvm][download] Success! downloaded: $url to: $folder"
         # Change to previous directory
         popd
     else
-        echo "[nvm][download] Failure! downloading: $url to: $folder" 1>&2
         # Change to previous directory
         popd
         return 1
     end
+
 end

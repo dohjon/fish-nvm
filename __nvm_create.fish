@@ -12,9 +12,8 @@ function __nvm_create --description "Create <folder> if it does not exist" --arg
 
     # Create <folder>
     if command mkdir "$folder"
-        echo "[nvm][create] Success! created folder: $folder"
+    
     else
-        echo "[nvm][create] Failure! could not create folder: $folder" 1>&2
         return 1
     end
 

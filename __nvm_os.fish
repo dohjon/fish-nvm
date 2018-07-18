@@ -1,16 +1,13 @@
 function __nvm_os --description "Get computer <os>"
 
-    set --local os
-
     switch (uname)
         case Linux
-            set os "linux"
+            echo "linux"
         case Darwin
-            set os "darwin"
+            echo "darwin"
         case '*'
-            echo "[nvm][os] os:" (uname) "is currently not supported" 1>&2
+            echo (uname) 1>&2
             return 1
     end
 
-    echo $os
 end

@@ -1,4 +1,4 @@
-function __nvm_unlink --description "Remove <folder> from $PATH" --argument-names folder
+function __nvm_unlink --description "Remove <folder> from \$PATH" --argument-names folder
 
     if test -z "$folder"
         echo "[nvm][unlink] <folder> required for 1 argument" 1>&2
@@ -21,10 +21,7 @@ function __nvm_unlink --description "Remove <folder> from $PATH" --argument-name
 
     # Verify that <folder> was removed from $PATH
     if string match $path_to_remove $PATH
-        echo "[nvm][unlink] Failure! removing: $path_to_remove from: \$PATH" 1>&2
         return 1
-    else
-        echo "[nvm][unlink] Success! removing: $path_to_remove from: \$PATH"
     end
 
 end

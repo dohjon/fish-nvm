@@ -12,9 +12,8 @@ function __nvm_move --description "Move <target> to <destination>" --argument-na
 
     # Move <target> folder to <destination>
     if command mv "$target" "$destination"
-        echo "[nvm][move] Success! moving: $target to: $destination"
+
     else
-        echo "[nvm][move] Failure! moving: $target to: $destination" 1>&2
         return 1
     end
 
