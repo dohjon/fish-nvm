@@ -11,7 +11,7 @@ function __nvm_list --description "List versions in remote <url>" --argument-nam
     if set --local result (curl $curl_parameters "$url")
         # Transform data
         set result (echo $result | grep --only-matching --extended-regexp '[0-9]+\.[0-9]+\.[0-9]+')
-        set result (echo $result | sort -u -k 1,1n -k 2,2n -k 3,3n -t .)
+        set result (string split ' ' $result | sort --unique --reverse --field-separator '.' --numeric-sort --key 1,1 --key 2,2 --key  3,3 )
         echo $result
     else
         return 1
