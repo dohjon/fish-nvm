@@ -1,13 +1,19 @@
-# TODO
+# fish-nvm
+
+> **Minimal** nodejs version manager made for [Fish](https://fishshell.com).
+
+- Minimal (new install will overwrite previous install)
+- Install (from [mirror](https://nodejs.org/dist))
+- Remove
+- Uses [xdg base directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
+
+## About
+
+Wanted a minimal and very simple nodejs installer when using [fish](https://fishshell.com) so wrote this.
+
+Only tested on Mac but tweaking `uname` flags should make it work out of the box with linux)
 
 ## Requirements
-
-fish
-
-```sh
-$ fish --version
-fish, version 3.3.1
-```
 
 sha256sum
 
@@ -23,33 +29,10 @@ $ fzf --version
 0.27.2
 ```
 
-## Information
-
-```sh
-[nvm][create][success] created folder: /Users/jdoherty/.config/nvm
-[nvm][create][success] created folder: /Users/jdoherty/.config/nvm/tmp
-[nvm][create][success] created folder: /Users/jdoherty/.config/nvm/versions
-
-nvm --purge
-[nvm][path][success] <tmp> folder path: /Users/jdoherty/.config/nvm/tmp
-[nvm][path][success] <versions> folder path: /Users/jdoherty/.config/nvm/versions
-[nvm][purge][success] purged all data in folder: /Users/jdoherty/.config/nvm/tmp
-[nvm][purge][success] purged all data in folder: /Users/jdoherty/.config/nvm/versions
-[nvm][unlink][success] removed current <link> from $PATH
-```
-
-WILL ADD NODE PATH IN BEGINNING OF PATH
-
-which node
-/Users/jdoherty/.nvm/versions/node/v14.17.0/bin/node
-
 ## Install
 
 ```sh
 cd $HOME/.config/fish/functions
-```
-
-```sh
 git clone https://github.com/dohjon/fish-node-manager.git
 ```
 
@@ -65,60 +48,16 @@ nvm -h
 ## Usage
 
 ```sh
-nvm -h
-
+# nvm -i
+nvm --install
 ```
 
-```bash
-// Step 2. build
-docker build -t calculator:latest .
+```sh
+# nvm -p
+nvm --purge
 ```
 
-```bash
-// Step 3. run
-
-// arguments
-docker run \
-    --rm \
-    -it \
-    --workdir /usr/src/app \
-    --volume $(pwd):/usr/src/app \
-    --init \
-    calculator:latest x add 3 print x
-
-// interactive
-docker run \
-    --rm \
-    -it \
-    --workdir /usr/src/app \
-    --volume $(pwd):/usr/src/app \
-    --init \
-    calculator:latest
-
-// file
-docker run \
-    --rm \
-    -it \
-    --workdir /usr/src/app \
-    --volume $(pwd):/usr/src/app \
-    --init \
-    calculator:latest test.txt
-```
-
-```js
-// link bin to path
-sudo npm link
-
-// or use path
-$ lib/calculator.js
-
-// arguments
-$ calculator x add 3 print x
-
-// interactive
-$ calculator
-
-// file
-$ calculator text.txt
-
+```sh
+# nvm -h
+nvm --help
 ```
