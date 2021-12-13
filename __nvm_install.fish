@@ -89,10 +89,10 @@ function __nvm_install --description "Install package"
         return 1
     end
 
-    # Select <version> to download from <list> using <program>
+    # Select <node_version> to download from <list> using <program>
     set --local program "fzf"
-    if set version (__nvm_select "$list" "$program")
-        echo "[nvm][select][success] selected: $version from <list>"
+    if set node_version (__nvm_select "$list" "$program")
+        echo "[nvm][select][success] selected: $node_version from <list>"
     else
         echo "[nvm][select][error] selected: <nothing> from <list>" 1>&2
         return 1
@@ -123,7 +123,7 @@ function __nvm_install --description "Install package"
     end
 
     # Generate package name
-    if set package (__nvm_package $version $os $arch) 
+    if set package (__nvm_package $node_version $os $arch) 
          echo "[nvm][package][success] generated package name: $package"
     else
         echo "[nvm][package][error] could not generate <package_name>" 1>&2
@@ -131,7 +131,7 @@ function __nvm_install --description "Install package"
     end
 
     # Generate package url
-    if set package_url (__nvm_package_url $mirror $version $package)
+    if set package_url (__nvm_package_url $mirror $node_version $package)
          echo "[nvm][package_url][success] generated package url: $package_url"
     else
         echo "[nvm][package_url][error] could not generate <package_url>" 1>&2
@@ -147,7 +147,7 @@ function __nvm_install --description "Install package"
     end
 
     # Generate checksum url
-    if set checksum_url (__nvm_checksum_url $mirror $version $checksum)
+    if set checksum_url (__nvm_checksum_url $mirror $node_version $checksum)
          echo "[nvm][checksum_url][success] generated checksum url: $checksum_url"
     else
         echo "[nvm][checksum_url][error] could not generate <checksum_url>" 1>&2
@@ -195,18 +195,18 @@ function __nvm_install --description "Install package"
     end
 
     # Rename <tmp> folder to <version> and then move it to <versions> folder
-    if __nvm_move "$tmp_folder" "$versions_folder/$version"
-        echo "[nvm][move][success] moved target: $tmp_folder to destination: $versions_folder/$version"
+    if __nvm_move "$tmp_folder" "$versions_folder/$node_version"
+        echo "[nvm][move][success] moved target: $tmp_folder to destination: $versions_folder/$node_version"
     else
-        echo "[nvm][move][error] could not move: $tmp_folder to destination: $versions_folder/$version" 1>&2
+        echo "[nvm][move][error] could not move: $tmp_folder to destination: $versions_folder/$node_version" 1>&2
         return 1
     end
 
     # Add newly selected <version> to $PATH
-    if __nvm_link "$versions_folder/$version/bin" 
-        echo "[nvm][link][success] added folder: $versions_folder/$version/bin to \$PATH"
+    if __nvm_link "$versions_folder/$node_version/bin" 
+        echo "[nvm][link][success] added folder: $versions_folder/$node_version/bin to \$PATH"
     else
-        echo "[nvm][link][error] could not add folder: $versions_folder/$version/bin to \$PATH" 1>&2
+        echo "[nvm][link][error] could not add folder: $versions_folder/$node_version/bin to \$PATH" 1>&2
         return 1
     end
 
