@@ -33,7 +33,7 @@ $ fzf --version
 
 ```sh
 cd $HOME/.config/fish/functions
-git clone https://github.com/dohjon/fish-node-manager.git
+git clone https://github.com/dohjon/fish-nvm.git
 ```
 
 ```sh
