@@ -11,7 +11,7 @@
 
 Wanted a minimal and very simple nodejs installer when using [fish](https://fishshell.com) so wrote this.
 
-Only tested on Mac but tweaking `uname` flags should make it work out of the box with linux)
+Only tested on Mac but tweaking `uname` flags should make it work out of the box with linux.
 
 ## Requirements
 
