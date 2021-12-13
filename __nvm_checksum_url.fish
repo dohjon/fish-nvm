@@ -1,11 +1,11 @@
-function __nvm_checksum_url --description "Generate checksum url using <mirror> <version> <checksum>" --argument-names mirror version checksum
+function __nvm_checksum_url --description "Generate checksum url using <mirror> <version> <checksum>" --argument-names mirror node_version checksum
 
     if test -z "$mirror"
         echo "[nvm][checksum_url] <mirror> required for 1 argument" 1>&2
         return 1
     end
 
-    if test -z "$version"
+    if test -z "$node_version"
         echo "[nvm][checksum_url] <version> required for 2 argument" 1>&2
         return 1
     end
@@ -17,6 +17,6 @@ function __nvm_checksum_url --description "Generate checksum url using <mirror> 
 
     # Generate <checksum> url in format:
     # <MIRROR>/v<VERSION>/<CHECKSUM>"
-    echo "$mirror/v$version/$checksum"
+    echo "$mirror/v$node_version/$checksum"
 
 end

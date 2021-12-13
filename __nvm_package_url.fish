@@ -1,11 +1,11 @@
-function __nvm_package_url --description "Generate package url using <mirror> <version> <package>" --argument-names mirror version package
+function __nvm_package_url --description "Generate package url using <mirror> <version> <package>" --argument-names mirror node_version package
 
     if test -z "$mirror"
         echo "[nvm][package] <mirror> required for 1 argument" 1>&2
         return 1
     end
 
-    if test -z "$version"
+    if test -z "$node_version"
         echo "[nvm][package] <version> required for 2 argument" 1>&2
         return 1
     end
@@ -17,6 +17,6 @@ function __nvm_package_url --description "Generate package url using <mirror> <v
 
     # Generate <package> url in format:
     # <MIRROR>/v<VERSION>/<PACKAGE>"
-    echo "$mirror/v$version/$package"
+    echo "$mirror/v$node_version/$package"
 
 end

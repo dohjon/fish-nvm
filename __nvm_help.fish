@@ -3,6 +3,6 @@ function __nvm_help --description "Print help information"
     echo
     echo "where COMMAND can be one of:"
     echo "       -i, --install   Install package"
-    echo "       -c, --clean     Remove all installed packages"
+    echo "       -p, --purge     Remove all installed packages"
     echo "       -h, --help      Print help information"
 end

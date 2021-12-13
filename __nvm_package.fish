@@ -1,6 +1,6 @@
-function __nvm_package --description "Generate package name using <version> <os> <arch>" --argument-names version os arch
+function __nvm_package --description "Generate package name using <version> <os> <arch>" --argument-names node_version os arch
 
-    if test -z "$version"
+    if test -z "$node_version"
         echo "[nvm][package] <version> required for 1 argument" 1>&2
         return 1
     end
@@ -17,6 +17,6 @@ function __nvm_package --description "Generate package name using <version> <os>
 
     # Generate <package> name in format: 
     # node-v<VERSION>-<OS>-<ARCH>.tar.gz
-    echo "node-v$version-$os-$arch.tar.gz"
+    echo "node-v$node_version-$os-$arch.tar.gz"
 
 end

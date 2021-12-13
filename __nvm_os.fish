@@ -1,8 +1,6 @@
 function __nvm_os --description "Get computer <os>"
 
     switch (uname)
-        case Linux
-            echo "linux"
         case Darwin
             echo "darwin"
         case '*'
