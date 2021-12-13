@@ -1,29 +1,19 @@
-# nvm.fish
+# fish-nvm
 
 > **Minimal** nodejs version manager made for [Fish](https://fishshell.com).
 
 - Minimal (new install will overwrite previous install)
 - Install (from [mirror](https://nodejs.org/dist))
 - Remove
-- Uses [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
+- Uses [xdg base directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 
 ## About
 
-Only tested on Mac but tweaking **uname** flags should make it work out of the box with linux)
+Wanted a minimal and very simple nodejs installer when using [fish](https://fishshell.com) so wrote this.
 
-See below for recommended, maintained and more robust options:
-
-- [https://github.com/jorgebucaran/nvm.fish](https://github.com/jorgebucaran/nvm.fish)
-- [https://github.com/FabioAntunes/fish-nvm](https://github.com/FabioAntunes/fish-nvm)
+Only tested on Mac but tweaking `uname` flags should make it work out of the box with linux)
 
 ## Requirements
-
-fish
-
-```sh
-$ fish --version
-fish, version 3.3.1
-```
 
 sha256sum
 
